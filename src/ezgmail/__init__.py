@@ -264,7 +264,7 @@ class GmailMessage:
 
                             # ``originalBody`` has the full body of the email, while the more useful ``body`` only has everything up until the quoted reply part.
                             self.originalBody = base64.urlsafe_b64decode(multipartPart["body"]["data"]).decode(
-                                emailEncoding
+                                emailEncoding, errors="ignore"
                             )
                             self.body = removeQuotedParts(self.originalBody)
 
